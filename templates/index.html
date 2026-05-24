@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Primitive Camping Finder 🏕️</title>
 
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <!-- Leaflet MarkerCluster CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <!-- Leaflet CSS (vendor-bundled, no CDN required) -->
+  <link rel="stylesheet" href="/static/vendor/leaflet.css" />
+  <link rel="stylesheet" href="/static/vendor/MarkerCluster.css" />
+  <link rel="stylesheet" href="/static/vendor/MarkerCluster.Default.css" />
 
   <link rel="stylesheet" href="/static/css/style.css" />
 </head>
@@ -92,9 +91,9 @@
 <!-- ── Status Toast ──────────────────────────────────────────────────────── -->
 <div id="toast" class="toast hidden"></div>
 
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<!-- Leaflet JS (vendor-bundled) -->
+<script src="/static/vendor/leaflet.js"></script>
+<script src="/static/vendor/leaflet.markercluster.js"></script>
 
 <script src="/static/js/app.js"></script>
 </body>

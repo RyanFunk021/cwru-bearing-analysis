@@ -418,5 +418,8 @@ document.getElementById('locationInput').addEventListener('keydown', (e) => {
   if (e.key === 'Enter') searchByText();
 });
 
+// ─── Fix Leaflet default icon paths when served locally ───────────────────────
+L.Icon.Default.imagePath = '/static/vendor/images/';
+
 // ─── Bootstrap ────────────────────────────────────────────────────────────────
 initMap();
