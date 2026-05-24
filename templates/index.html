@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Primitive Camping Finder 🏕️</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Leaflet MarkerCluster CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+<!-- ── Top Bar ───────────────────────────────────────────────────────────── -->
+<header class="topbar">
+  <div class="topbar-brand">
+    <span class="brand-icon">🏕️</span>
+    <span class="brand-text">Primitive Camping Finder</span>
+  </div>
+  <div class="search-row">
+    <input
+      id="locationInput"
+      type="text"
+      placeholder="Enter city, state, or zip — or use GPS ↓"
+      autocomplete="off"
+    />
+    <button id="searchBtn" class="btn btn-primary">Search</button>
+    <button id="gpsBtn" class="btn btn-secondary" title="Use my location">📍 GPS</button>
+    <div class="radius-wrap">
+      <label for="radiusSelect">Radius</label>
+      <select id="radiusSelect">
+        <option value="25">25 mi</option>
+        <option value="50" selected>50 mi</option>
+        <option value="100">100 mi</option>
+        <option value="200">200 mi</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<!-- ── Main Layout ───────────────────────────────────────────────────────── -->
+<main class="layout">
+
+  <!-- Left Sidebar: Results List -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2 id="sidebarTitle">Primitive Campsites</h2>
+      <span id="resultCount" class="badge"></span>
+    </div>
+
+    <div id="filterBar" class="filter-bar hidden">
+      <label>
+        <input type="checkbox" id="filterFree" /> Free only
+      </label>
+      <label>
+        <input type="checkbox" id="filterBackcountry" /> Backcountry
+      </label>
+      <label>
+        <input type="checkbox" id="filterNoReservation" /> No reservation
+      </label>
+    </div>
+
+    <div id="campList" class="camp-list">
+      <div class="empty-state">
+        <p>🗺️ Enter a location above to find<br/>primitive camping nearby.</p>
+        <p class="hint">Results come from OpenStreetMap<br/>and are scored for primitiveness.</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Map -->
+  <div id="map"></div>
+
+  <!-- Right Panel: Reddit Reviews -->
+  <aside class="reddit-panel hidden" id="redditPanel">
+    <div class="reddit-header">
+      <h3 id="redditTitle">Reddit Reviews</h3>
+      <button id="closeReddit" class="btn-icon" title="Close">✕</button>
+    </div>
+    <div id="redditQuery" class="reddit-query"></div>
+    <div id="redditContent" class="reddit-content">
+      <div class="loading-dots"><span></span><span></span><span></span></div>
+    </div>
+  </aside>
+
+</main>
+
+<!-- ── Status Toast ──────────────────────────────────────────────────────── -->
+<div id="toast" class="toast hidden"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>
